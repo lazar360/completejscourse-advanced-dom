@@ -28,3 +28,30 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+////////////////////////////////
+// select element 
+
+const allSections = document.querySelectorAll('.section');
+const Section = document.querySelector('.section');
+const header = document.querySelector('.header');
+const allButtons = document.getElementsByClassName('button');
+document.getElementById('section--1');
+
+// creating and inserting element
+// .insertAdjacentHTML déjà vu au niveau du foreach
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.textContent = 'We use cookies to improve performance.';
+message.innerHTML = 'We use cookies to improve performance <button class="btn btn--close-cookie">Got it!</button>';
+header.prepend(message);
+header.append(message);
+header.before(message);
+header.after(message);
+
+// Delete elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function(){
+  message.remove();
+});
