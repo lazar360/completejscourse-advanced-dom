@@ -54,4 +54,6 @@ document
   .querySelector('.btn--close-cookie')
   .addEventListener('click', function(){
   message.remove();
+  // ancienne méthode removeChild
+  // message.parentNode.removeChild(message);
 });
