@@ -29,23 +29,32 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// btnScrollTo
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', function(e) {
   const s1coords = section1.getBoundingClientRect();
   console.log(s1coords);
-  // window.scrollTo({
-  //   top: s1coords.top,
-  //   left: s1coords.left,
-  //   behavior: 'smooth'
-  // }); 
-
   section1.scrollIntoView({behavior: 'smooth'});
-
 });
 
+// rgb(255,255,255)
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const randomColor = () => `rgb(${randomInt(0,255)}, ${randomInt(0,255)}, ${randomInt(0,255)})`;
 
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  e.stopPropagation();
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+});
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+});
 
 ////////////////////////////////
 // LECTURES
