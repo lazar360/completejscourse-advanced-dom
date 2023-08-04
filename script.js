@@ -59,3 +59,5 @@ btnScrollTo.addEventListener('click', function (e) {
 
 ////////////////////////////////
 // LECTURES
+const h1 = document.querySelector('h1');
+console.log(h1.querySelectorAll('.highlight'));
