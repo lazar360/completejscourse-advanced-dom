@@ -1,12 +1,14 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+///////////////////////////////////////
+// Modal window
 
 const openModal = function (e) {
   e.preventDefault();
@@ -29,93 +31,18 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-// btnScrollTo
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+////////////////////////////////
+// Page navigation
 
-btnScrollTo.addEventListener('click', function(e) {
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
-  section1.scrollIntoView({behavior: 'smooth'});
-});
+////////////////////////////////
+////////////////////////////////
+////////////////////////////////
 
-// rgb(255,255,255)
-const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
-const randomColor = () => `rgb(${randomInt(0,255)}, ${randomInt(0,255)}, ${randomInt(0,255)})`;
-
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  e.stopPropagation();
-});
-
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-});
-
-document.querySelector('.nav').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
+///////////////////////////////////////
+// Button scrolling
+btnScrollTo.addEventListener('click', function (e) {
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 ////////////////////////////////
 // LECTURES
-// select element
-
-const allSections = document.querySelectorAll('.section');
-const Section = document.querySelector('.section');
-const header = document.querySelector('.header');
-const allButtons = document.getElementsByClassName('button');
-document.getElementById('section--1');
-
-// creating and inserting element
-// .insertAdjacentHTML déjà vu au niveau du foreach
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.textContent = 'We use cookies to improve performance.';
-message.innerHTML =
-  'We use cookies to improve performance <button class="btn btn--close-cookie">Got it!</button>';
-header.prepend(message);
-header.append(message);
-header.before(message);
-header.after(message);
-
-// Delete elements
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function () {
-    message.remove();
-    // ancienne méthode removeChild
-    // message.parentNode.removeChild(message);
-  });
-
-// Styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
-console.log(getComputedStyle(message).color);
-
-message.style.height = 
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
-
-document.documentElement.style.setProperty('--color-primary', 'orangered');
-
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
-
-logo.alt = 'Beatifull minimalist logo';
-logo.setAttribute('company', 'Bankist');
-console.log(logo.getAttribute('src'));
-
-// Data attributes
-console.log(logo.dataset.versionNumber);
-
-// Classes
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c');
-
-// don't use
-// logo.className = 'Jonas';
-
