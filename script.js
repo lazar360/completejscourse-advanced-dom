@@ -60,4 +60,25 @@ btnScrollTo.addEventListener('click', function (e) {
 ////////////////////////////////
 // LECTURES
 const h1 = document.querySelector('h1');
+
+// Going downards : child
 console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'orangered';
+
+// Going upward : parents
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+console.log(h1.parentElement.children);
+[...h1.parentElement.children].forEach(function(child) { 
+  if(child !== h1) child.style.transform = 'scale(0.5)';  
+});
+
+
+h1.closest('.header').style.background = 'var(--gradient-primary)';
+
+// Going sideways : siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
