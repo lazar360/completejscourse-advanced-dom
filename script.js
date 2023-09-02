@@ -164,5 +164,9 @@ const imgObserver = new IntersectionObserver(loadImg,{
 });
 
 imgTargets.forEach(img => imgObserver.observe(img));
+
+// slider
+const slider = document.querySelectorAll('.slide');
+
 ////////////////////////////////
 // LECTURES
